@@ -1,0 +1,63 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #c8d8e4);
+}
+
+.chat-message.user {
+  background-color: #e6f7ff;
+  align-self: flex-end;
+  position: relative;
+}
+.chat-message.bot {
+  background-color: #fce4ec;
+  align-self: flex-start;
+  position: relative;
+}
+
+.chat-message.user::before,
+.chat-message.bot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transform: translateY(-50%);
+}
+
+.chat-message.user::before {
+  border-width: 8px 0 8px 8px;
+  border-color: transparent transparent transparent #e6f7ff;
+  right: -8px;
+}
+.chat-message.bot::before {
+  border-width: 8px 8px 8px 0;
+  border-color: transparent #ccac55 transparent transparent;
+  left: -8px;
+}
+
+.message-container {
+  max-width: 75%;
+}
+
+#chat-container::-webkit-scrollbar {
+  width: 8px;
+}
+#chat-container::-webkit-scrollbar-thumb {
+  background: #6ddbd6d2;
+  border-radius: 10px;
+}
+#chat-container::-webkit-scrollbar-thumb:hover {
+  background: #395ca1;
+}
+
+/* Loading dots */
+@keyframes bounce {
+  0%, 100% { transform: translateY(-25%); }
+  50% { transform: translateY(0); }
+}
+.loading-dot {
+  animation: bounce 0.6s infinite;
+}
+.loading-dot:nth-child(2) { animation-delay: 0.2s; }
+.loading-dot:nth-child(3) { animation-delay: 0.4s; }
